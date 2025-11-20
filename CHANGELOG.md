@@ -1,20 +1,10 @@
-## 1.0.0
 
-### 🎉 Initial Release
+## 1.2.0
 
-- ✅ Multiple color picker types (Material, Block, Slide, Adaptive)
-- ✅ Color name extraction using colornames package
-- ✅ Hex code and ARGB value return
-- ✅ Direct conversion methods
-- ✅ Bottom sheet picker support
-- ✅ Comprehensive example app
-- ✅ Full test coverage
-- ✅ Professional documentation
+### Updates
 
-### Features
-- `showColorPicker()` - Dialog-based color picker
-- `showColorPickerBottomSheet()` - Bottom sheet color picker  
-- `colorToResult()` - Direct color conversion
-- `hexToResult()` - Direct hex string conversion
-- Support for opacity/transparency
-- Customizable picker options
+- **Simplified API:** with multiple well-defined picker types  
+- **Enhanced Adaptive Picker:** Includes wheel picker and multiple tabs  
+- **Better State Management:** Real-time color updates  
+- **Improved Documentation:** Comprehensive parameter descriptions  
+- **Custom Colors:** Support for custom color palettes  
