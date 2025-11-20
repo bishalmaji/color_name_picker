@@ -363,7 +363,6 @@
 //   }
 // }
 
-
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart' hide ColorPicker;
 import 'package:flex_color_picker/flex_color_picker.dart';
@@ -526,10 +525,10 @@ class ColorNamePicker {
 
   /// Builds color information widget
   static Widget _buildColorInfo(
-      Color color, {
-        required bool showColorCode,
-        required bool showColorName,
-      }) {
+    Color color, {
+    required bool showColorCode,
+    required bool showColorName,
+  }) {
     final ColorResult colorResult = _getColorResult(color);
 
     return Column(
@@ -635,7 +634,8 @@ class ColorNamePicker {
 
   /// Check if hex string is valid
   static bool _isValidHex(String hexCode) {
-    final RegExp hexRegex = RegExp(r'^#?([0-9A-Fa-f]{3}|[0-9A-Fa-f]{6}|[0-9A-Fa-f]{8})$');
+    final RegExp hexRegex =
+        RegExp(r'^#?([0-9A-Fa-f]{3}|[0-9A-Fa-f]{6}|[0-9A-Fa-f]{8})$');
     return hexRegex.hasMatch(hexCode);
   }
 
@@ -733,7 +733,7 @@ class ColorNamePicker {
                       child: ElevatedButton(
                         onPressed: () {
                           final ColorResult colorResult =
-                          _getColorResult(selectedColor);
+                              _getColorResult(selectedColor);
                           Navigator.of(context).pop(colorResult);
                         },
                         child: const Text('Select'),

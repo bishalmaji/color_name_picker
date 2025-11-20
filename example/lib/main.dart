@@ -59,257 +59,253 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(24.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            // Header
+            const Text(
+              'Select a Color',
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.w600,
+                color: Colors.black87,
+              ),
+            ),
+            const SizedBox(height: 8),
+            const Text(
+              'Choose from different color picker styles',
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.black54,
+              ),
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 32),
 
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              // Header
-              const Text(
-                'Select a Color',
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.black87,
-                ),
+            // Color Preview Card
+            Card(
+              elevation: 4,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16),
               ),
-              const SizedBox(height: 8),
-              const Text(
-                'Choose from different color picker styles',
-                style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.black54,
-                ),
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: 32),
-          
-              // Color Preview Card
-              Card(
-                elevation: 4,
-                shape: RoundedRectangleBorder(
+              child: Container(
+                width: double.infinity,
+                padding: const EdgeInsets.all(24),
+                decoration: BoxDecoration(
+                  color: _currentColor,
                   borderRadius: BorderRadius.circular(16),
                 ),
-                child: Container(
-                  width: double.infinity,
-                  padding: const EdgeInsets.all(24),
-                  decoration: BoxDecoration(
-                    color: _currentColor,
-                    borderRadius: BorderRadius.circular(16),
-                  ),
-                  child: Column(
-                    children: [
-                      // Color Preview Box
-                      Container(
-                        width: 100,
-                        height: 100,
-                        decoration: BoxDecoration(
-                          color: _currentColor,
-                          borderRadius: BorderRadius.circular(12),
-                          border: Border.all(
-                            color: isLightColor ? Colors.black26 : Colors.white30,
-                            width: 2,
+                child: Column(
+                  children: [
+                    // Color Preview Box
+                    Container(
+                      width: 100,
+                      height: 100,
+                      decoration: BoxDecoration(
+                        color: _currentColor,
+                        borderRadius: BorderRadius.circular(12),
+                        border: Border.all(
+                          color: isLightColor ? Colors.black26 : Colors.white30,
+                          width: 2,
+                        ),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.2),
+                            blurRadius: 12,
+                            offset: const Offset(0, 4),
                           ),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black.withOpacity(0.2),
-                              blurRadius: 12,
-                              offset: const Offset(0, 4),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+
+                    // Color Information
+                    if (_selectedColor != null) ...[
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 16,
+                          vertical: 12,
+                        ),
+                        decoration: BoxDecoration(
+                          color: isLightColor
+                              ? Colors.black.withOpacity(0.1)
+                              : Colors.white.withOpacity(0.1),
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        child: Column(
+                          children: [
+                            // Color Name with Color Indicator
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Container(
+                                  width: 16,
+                                  height: 16,
+                                  decoration: BoxDecoration(
+                                    color: _currentColor,
+                                    shape: BoxShape.circle,
+                                    border: Border.all(
+                                      color: isLightColor
+                                          ? Colors.black26
+                                          : Colors.white30,
+                                      width: 1,
+                                    ),
+                                  ),
+                                ),
+                                const SizedBox(width: 8),
+                                Text(
+                                  _selectedColor!.colorName,
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w600,
+                                    color: isLightColor
+                                        ? Colors.black87
+                                        : Colors.white,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            const SizedBox(height: 8),
+
+                            // Hex Code
+                            Text(
+                              _selectedColor!.hexCode,
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontFamily: 'Monospace',
+                                color: isLightColor
+                                    ? Colors.black87
+                                    : Colors.white,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                            const SizedBox(height: 4),
+
+                            // ARGB Value
+                            Text(
+                              'ARGB: ${_selectedColor!.argbValue.toRadixString(16).toUpperCase()}',
+                              style: TextStyle(
+                                fontSize: 12,
+                                fontFamily: 'Monospace',
+                                color: isLightColor
+                                    ? Colors.black54
+                                    : Colors.white70,
+                              ),
                             ),
                           ],
                         ),
                       ),
-                      const SizedBox(height: 20),
-          
-                      // Color Information
-                      if (_selectedColor != null) ...[
-                        Container(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 16,
-                            vertical: 12,
-                          ),
-                          decoration: BoxDecoration(
-                            color: isLightColor
-                                ? Colors.black.withOpacity(0.1)
-                                : Colors.white.withOpacity(0.1),
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                          child: Column(
-                            children: [
-                              // Color Name with Color Indicator
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Container(
-                                    width: 16,
-                                    height: 16,
-                                    decoration: BoxDecoration(
-                                      color: _currentColor,
-                                      shape: BoxShape.circle,
-                                      border: Border.all(
-                                        color: isLightColor
-                                            ? Colors.black26
-                                            : Colors.white30,
-                                        width: 1,
-                                      ),
-                                    ),
-                                  ),
-                                  const SizedBox(width: 8),
-                                  Text(
-                                    _selectedColor!.colorName,
-                                    style: TextStyle(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.w600,
-                                      color: isLightColor
-                                          ? Colors.black87
-                                          : Colors.white,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              const SizedBox(height: 8),
-          
-                              // Hex Code
-                              Text(
-                                _selectedColor!.hexCode,
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  fontFamily: 'Monospace',
-                                  color: isLightColor
-                                      ? Colors.black87
-                                      : Colors.white,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                              const SizedBox(height: 4),
-          
-                              // ARGB Value
-                              Text(
-                                'ARGB: ${_selectedColor!.argbValue.toRadixString(16).toUpperCase()}',
-                                style: TextStyle(
-                                  fontSize: 12,
-                                  fontFamily: 'Monospace',
-                                  color: isLightColor
-                                      ? Colors.black54
-                                      : Colors.white70,
-                                ),
-                              ),
-                            ],
-                          ),
+                    ] else ...[
+                      Text(
+                        'No color selected',
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: isLightColor ? Colors.black54 : Colors.white70,
+                          fontStyle: FontStyle.italic,
                         ),
-                      ] else ...[
-                        Text(
-                          'No color selected',
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: isLightColor
-                                ? Colors.black54
-                                : Colors.white70,
-                            fontStyle: FontStyle.italic,
-                          ),
-                        ),
-                      ],
+                      ),
+                    ],
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(height: 32),
+
+            // Picker Buttons Section
+            const Text(
+              'Color Pickers',
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.w600,
+                color: Colors.black87,
+              ),
+            ),
+            const SizedBox(height: 16),
+            Wrap(
+              spacing: 12,
+              runSpacing: 12,
+              alignment: WrapAlignment.center,
+              children: [
+                _buildPickerButton(
+                  'Material Picker',
+                  PickerType.materialPicker,
+                  Icons.color_lens_outlined,
+                ),
+                _buildPickerButton(
+                  'Block Picker',
+                  PickerType.blockPicker,
+                  Icons.grid_view,
+                ),
+                _buildPickerButton(
+                  'Slide Picker',
+                  PickerType.slidePicker,
+                  Icons.swap_vert,
+                ),
+                _buildPickerButton(
+                  'Adaptive Picker',
+                  PickerType.adaptivePicker,
+                  Icons.adaptive.share_outlined,
+                ),
+              ],
+            ),
+            const SizedBox(height: 20),
+
+            // Additional Options
+            Wrap(
+              spacing: 12,
+              runSpacing: 12,
+              alignment: WrapAlignment.center,
+              children: [
+                // Bottom Sheet Picker
+                FilledButton.tonal(
+                  onPressed: _showBottomSheetPicker,
+                  style: FilledButton.styleFrom(
+                    backgroundColor: _currentColor.withOpacity(0.1),
+                    foregroundColor: _currentColor,
+                  ),
+                  child: const Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(Icons.expand_less),
+                      SizedBox(width: 8),
+                      Text('Bottom Sheet Picker'),
                     ],
                   ),
                 ),
-              ),
-              const SizedBox(height: 32),
-          
-              // Picker Buttons Section
-              const Text(
-                'Color Pickers',
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.black87,
-                ),
-              ),
-              const SizedBox(height: 16),
-              Wrap(
-                spacing: 12,
-                runSpacing: 12,
-                alignment: WrapAlignment.center,
-                children: [
-                  _buildPickerButton(
-                    'Material Picker',
-                    PickerType.materialPicker,
-                    Icons.color_lens_outlined,
-                  ),
-                  _buildPickerButton(
-                    'Block Picker',
-                    PickerType.blockPicker,
-                    Icons.grid_view,
-                  ),
-                  _buildPickerButton(
-                    'Slide Picker',
-                    PickerType.slidePicker,
-                    Icons.swap_vert,
-                  ),
-                  _buildPickerButton(
-                    'Adaptive Picker',
-                    PickerType.adaptivePicker,
-                    Icons.adaptive.share_outlined,
-                  ),
-                ],
-              ),
-              const SizedBox(height: 20),
-          
-              // Additional Options
-              Wrap(
-                spacing: 12,
-                runSpacing: 12,
-                alignment: WrapAlignment.center,
-                children: [
-                  // Bottom Sheet Picker
-                  FilledButton.tonal(
-                    onPressed: _showBottomSheetPicker,
-                    style: FilledButton.styleFrom(
-                      backgroundColor: _currentColor.withOpacity(0.1),
-                      foregroundColor: _currentColor,
-                    ),
-                    child: const Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Icon(Icons.expand_less),
-                        SizedBox(width: 8),
-                        Text('Bottom Sheet Picker'),
-                      ],
-                    ),
-                  ),
-          
-                  // Test Direct Conversion
-                  OutlinedButton(
-                    onPressed: _testDirectConversion,
-                    style: OutlinedButton.styleFrom(
-                      side: BorderSide(color: _currentColor),
-                      foregroundColor: _currentColor,
-                    ),
-                    child: const Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Icon(Icons.build_outlined),
-                        SizedBox(width: 8),
-                        Text('Test Conversion'),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-          
-              // Spacer to push content up
-              const Spacer(),
-          
-              // Footer
-              Text(
-                'Color Name Picker Demo',
-                style: TextStyle(
-                  fontSize: 14,
-                  color: Colors.grey.shade600,
-                ),
-              ),
-              const SizedBox(height: 8),
-            ],
-          ),
 
+                // Test Direct Conversion
+                OutlinedButton(
+                  onPressed: _testDirectConversion,
+                  style: OutlinedButton.styleFrom(
+                    side: BorderSide(color: _currentColor),
+                    foregroundColor: _currentColor,
+                  ),
+                  child: const Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(Icons.build_outlined),
+                      SizedBox(width: 8),
+                      Text('Test Conversion'),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+
+            // Spacer to push content up
+            const Spacer(),
+
+            // Footer
+            Text(
+              'Color Name Picker Demo',
+              style: TextStyle(
+                fontSize: 14,
+                color: Colors.grey.shade600,
+              ),
+            ),
+            const SizedBox(height: 8),
+          ],
+        ),
       ),
     );
   }

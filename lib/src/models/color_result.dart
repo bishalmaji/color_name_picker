@@ -25,12 +25,13 @@ class ColorResult {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-          other is ColorResult &&
-              runtimeType == other.runtimeType &&
-              hexCode == other.hexCode &&
-              colorName == other.colorName &&
-              argbValue == other.argbValue;
+      other is ColorResult &&
+          runtimeType == other.runtimeType &&
+          hexCode == other.hexCode &&
+          colorName == other.colorName &&
+          argbValue == other.argbValue;
 
   @override
-  int get hashCode => hexCode.hashCode ^ colorName.hashCode ^ argbValue.hashCode;
+  int get hashCode =>
+      hexCode.hashCode ^ colorName.hashCode ^ argbValue.hashCode;
 }

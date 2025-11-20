@@ -1,4 +1,3 @@
-
 import 'dart:ui';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:color_name_picker/color_name_picker.dart';
@@ -74,11 +73,14 @@ void main() {
     });
 
     test('Valid hex formats work correctly', () {
-      expect(ColorNamePicker.hexToResult('#FF0000').colorName, isNot('Invalid Color'));
-      expect(ColorNamePicker.hexToResult('#F00').colorName, isNot('Invalid Color'));
-      expect(ColorNamePicker.hexToResult('FF0000').colorName, isNot('Invalid Color'));
-      expect(ColorNamePicker.hexToResult('#FFFF0000').colorName, isNot('Invalid Color'));
+      expect(ColorNamePicker.hexToResult('#FF0000').colorName,
+          isNot('Invalid Color'));
+      expect(ColorNamePicker.hexToResult('#F00').colorName,
+          isNot('Invalid Color'));
+      expect(ColorNamePicker.hexToResult('FF0000').colorName,
+          isNot('Invalid Color'));
+      expect(ColorNamePicker.hexToResult('#FFFF0000').colorName,
+          isNot('Invalid Color'));
     });
   });
 }
-
