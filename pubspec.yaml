@@ -1,6 +1,8 @@
 name: color_name_picker
 description: A Flutter color picker library that returns color names with hex codes. Supports multiple picker types including Material, Block, Wheel, and HSV pickers.
 version: 1.0.0
+homepage: https://github.com/bishalmaji/color_name_picker
+github: https://github.com/bishalmaji/color_name_picker
 
 
 environment:
