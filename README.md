@@ -126,6 +126,17 @@ final ColorResult? result = await ColorNamePicker.showColorPicker(
 - **GitHub:** @bishalmaji  
 - **Pub.dev:** color_name_picker
 
+### Support This Project ❤️
+
+If you find this package helpful and want to support its development, consider buying me a coffee!
+
+**☕ Support:**  
+[Buy Me a Coffee](https://buymeacoffee.com/bishalmaji)
+
+Your contribution helps me maintain the project, add new features, and keep it updated.  
+Thank you for your support! 🙏
+
+
 
 
     

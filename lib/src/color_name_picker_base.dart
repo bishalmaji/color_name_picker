@@ -185,13 +185,12 @@ class ColorNamePicker {
     return ColorResult(
       hexCode: hexCode,
       colorName: colorName,
-      argbValue: color.value,
+      argbValue: color.toARGB32(),
     );
   }
 
-  /// Converts Color to hex string
   static String _colorToHex(Color color) {
-    return '#${color.value.toRadixString(16).padLeft(8, '0').toUpperCase()}';
+    return '#${color.toARGB32().toRadixString(16).padLeft(8, '0').toUpperCase()}';
   }
 
   /// Gets color name from color using colornames package
@@ -203,7 +202,6 @@ class ColorNamePicker {
       return 'Unknown Color';
     }
   }
-
   /// Direct conversion from Color to ColorResult
   static ColorResult colorToResult(Color color) {
     return _getColorResult(color);

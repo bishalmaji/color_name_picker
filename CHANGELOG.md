@@ -8,3 +8,8 @@
 - **Better State Management:** Real-time color updates  
 - **Improved Documentation:** Comprehensive parameter descriptions  
 - **Custom Colors:** Support for custom color palettes  
+
+## 1.3.0
+### Updates
+
+- **Fixed Deprecation:** Replaced color.value with color.toARGB32()
